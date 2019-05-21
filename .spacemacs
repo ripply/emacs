@@ -31,10 +31,13 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     sql
+     markdown
      go
      lua
      html
      javascript
+     neotree
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -47,7 +50,7 @@ values."
      git
      ibuffer
      semantic
-     ;; markdown
+     markdown
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -318,6 +321,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+      (global-auto-revert-mode t)
       (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
       ; windmove switches between windows
       (global-set-key (kbd "M-H") 'windmove-left)
@@ -327,6 +331,17 @@ you should place your code here."
 
       (global-set-key (kbd "C->") 'indent-rigidly-right-to-tab-stop)
       (global-set-key (kbd "C-<") 'indent-rigidly-left-to-tab-stop)
+
+      ; copy paste to x clipboard
+      (global-set-key "\C-w" 'clipboard-kill-region)
+      (global-set-key "\M-w" 'clipboard-kill-ring-save)
+      (global-set-key "\C-y" 'clipboard-yank)
+
+      ; https://sites.google.com/site/steveyegge2/effective-emacs
+      ; To enable the Ctrl-x Ctrl-m sequence add the following lines to your .emacs file:
+      ; Binds M-x to Ctrl-X Ctrl-M
+      (global-set-key "\C-x\C-m" 'execute-extended-command)
+      (global-set-key "\C-c\C-m" 'execute-extended-command)
 
       ; font size
       (defun dotspacemacs/init ()
@@ -338,7 +353,10 @@ you should place your code here."
                                      :width normal
                                      :powerline-offset 2)))
       macs
+
+      (neotree-toggle)
   )
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

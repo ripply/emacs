@@ -19,8 +19,19 @@
 - C-u - 6 C-x ^ - shrink window 6 times
 - M-m f T - neotree toggle
 
+## iBuffer
+- C-x C-b
+  - m => mark buffer
+  - t => flip marks
+  - k => kill marked buffer,
+  - D => kill all buffers except marked
+
 ## Editing
 - C-x <TAB> - Interactively modify indentation (with hjkl)
+
+## js2mode
+- M-RET r r v - Rename variable
+- M-RET r l t - log this
 
 ## Projectile
 - C-c p p - switch projectile project

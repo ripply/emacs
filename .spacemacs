@@ -352,10 +352,12 @@ you should place your code here."
                                      :weight normal
                                      :width normal
                                      :powerline-offset 2)))
-      macs
-
       (neotree-toggle)
+
+      (eval-after-load 'js2-mode
+      '(define-key js2-mode-map (kbd "C-c C-j") 'js2-jump-to-definition))
   )
+
 
 
 ;; Do not write anything past this comment. This is where Emacs will

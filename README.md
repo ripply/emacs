@@ -17,6 +17,7 @@
 ## Window
 - C-u 6 C-x ^ - enlarge window 6 times
 - C-u - 6 C-x ^ - shrink window 6 times
+- C-x + - balance windws
 - M-m f T - neotree toggle
 
 ## iBuffer

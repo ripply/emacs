@@ -31,6 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     python
+     typescript
+     yaml
      sql
      markdown
      go
@@ -51,7 +54,7 @@ values."
      ibuffer
      semantic
      markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -353,12 +356,30 @@ you should place your code here."
                                      :width normal
                                      :powerline-offset 2)))
       (neotree-toggle)
+      ; js-mode
+      ;(eval-after-load 'js-mode
+                                        ;    '(define-key js-jump-to-definition (kbd "\C-c\C-j")))
+      (add-hook 'js2-mode
+                (lambda ()
+                  (local-set-key "\C-c\C-j", 'js2-jump-to-definition)))
 
       (eval-after-load 'js2-mode
       '(define-key js2-mode-map (kbd "C-c C-j") 'js2-jump-to-definition))
-  )
+)
 
 
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 2))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
